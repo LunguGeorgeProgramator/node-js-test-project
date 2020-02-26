@@ -16,6 +16,7 @@ I am using a virtual envirement to run node js server and ubuntu as operating sy
      node app.js
       
 5. To see result in browser just load link (NOTE: I am using local host port 6060 just because it was free on my machine, set any other port in app.js file)
+
     http://0.0.0.0:6060/
     
       
