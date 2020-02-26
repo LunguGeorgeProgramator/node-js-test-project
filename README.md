@@ -13,6 +13,7 @@ I am using a virtual envirement to run node js server and ubuntu as operating sy
      cd YOUR_PROJECTS_PATH/projects   
      
 4. Then start the server with comand:
+
      node app.js
       
 5. To see result in browser just load link (NOTE: I am using local host port 6060 just because it was free on my machine, set any other port in app.js file)
