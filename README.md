@@ -6,9 +6,10 @@ I am using a virtual envirement to run node js server and ubuntu as operating sy
 
 2. To start the server just activate the envirement comand:
       
-      source ../../node-js-projects/node-js-12.16/bin/activate # my vritaul env is node-js-projects/node-js-12.16
+        source ../../node-js-projects/node-js-12.16/bin/activate # my vritaul env is node-js-projects/node-js-12.16
     - Then create a folder for the project (my folder is projects) and then set path in terminal with comand:
-      cd ../../node-js-projects/projects
+         
+            cd ../../node-js-projects/projects
     - Then start the server with comand:
       node app.js
       
