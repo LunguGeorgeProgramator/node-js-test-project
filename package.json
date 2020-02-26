@@ -1,0 +1,27 @@
+{
+  "name": "project01",
+  "version": "1.0.0",
+  "description": "I am using a virtual envirement to run node js server and ubuntu as operating system.",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LunguGeorgeProgramator/node-js-test-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LunguGeorgeProgramator/node-js-test-project/issues"
+  },
+  "homepage": "https://github.com/LunguGeorgeProgramator/node-js-test-project#readme"
+}
