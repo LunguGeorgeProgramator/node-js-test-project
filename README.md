@@ -8,12 +8,16 @@ I am using a virtual envirement to run node js server and ubuntu as operating sy
 
     source YOUR_ENV_PATH/bin/activate # my vritaul env is node-js-projects/node-js-12.16
     
-3. Then create a folder for the project (my folder is projects) and then set path in terminal with comand (Note this is my project path ../../node-js-projects use your one path 'YOUR_PROJECT_PATH'):
+3. Then create a folder for the project (my folder is projects) and then set path in terminal with comand (Note this is my projects path ../../node-js-projects use your one path 'YOUR_PROJECTS_PATH'):
 
-     cd YOUR_PROJECT_PATH/projects   
+     cd YOUR_PROJECTS_PATH/projects   
      
 4. Then start the server with comand:
-      node app.js
+     node app.js
+      
+5. To see result in browser just load link (NOTE: I am using local host port 6060 just because it was free on my machine, set any other port in app.js file)
+    http://0.0.0.0:6060/
+    
       
   
   
