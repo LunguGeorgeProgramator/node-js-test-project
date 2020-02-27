@@ -1,9 +1,13 @@
-const ClinicaController = require('./controller/ClinicaController');
+const ClinicController = require('./controller/ClinicController');
 
 function routes(app){
     
     app.get('/', function (req, res) { 
-        return ClinicaController.index(res);
+        return ClinicController.index(res);
+    });
+
+    app.get('/clinica/creaza', function (req, res) { 
+        return ClinicController.create(res);
     })
 
     // app.post('/', function (req, res) { // set post request for action link host+ '/'
