@@ -11,16 +11,21 @@ I am using a virtual envirement to run node js server and ubuntu as operating sy
 3. Then create a folder for the project (my folder is projects) and then set path in terminal with comand (Note this is my projects path ../../node-js-projects use your one path 'YOUR_PROJECTS_PATH'):
 
         cd YOUR_PROJECTS_PATH/projects   
-     
-4. To set all the node js packages run comand:
+        
+4. Copy the project files to your project folder.
+
+5. To set all the node js packages run comand:
 
         npm install
+6. Run the migration file to create all the tables in data base:
+
+        npx ./migrations.js
    
-5. Then start the server with comand:
+7. Then start the server with comand:
 
         node app.js
       
-6. To see result in browser just load link:
+8. To see result in browser just load link:
 
      http://0.0.0.0:6060/
 
