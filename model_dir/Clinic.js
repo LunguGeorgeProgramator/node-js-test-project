@@ -21,6 +21,4 @@ Clinic.associate = function (models) { // N:1
     models.User.hasMany(models.Medic);
 };
 
-Clinic.sync({ force: true });
-
 module.exports = Clinic;

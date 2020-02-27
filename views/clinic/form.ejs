@@ -1,0 +1,23 @@
+<%- include('../header'); -%>
+                            
+<div class="h1 card-title border-bottom border-light pb-3">Clinica</div>
+
+<form class="p-4" action="/clinica/<% if(method && method =='create') { %>store<%  } else { %><% if(clinic) { %><%= clinic.id %><%  } %>/update<% } %>" method="post">
+
+    <div class="form-group">
+        <label for="nume">Nume</label>
+        <input type="text" name="nume" class="form-control" id="nume" value="<% if(clinic) { %><%= clinic.nume %><%  } %>">
+        
+    </div>
+    <div class="form-group">
+        <label for="locatie">Locatie</label>
+        <input type="text" class="form-control" name="locatie" id="locatie" value="<% if(clinic) { %><%= clinic.locatie %><%  } %>">
+
+    </div>
+
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary">Salveaza</button>
+    </div>
+</form>  
+
+<%- include('../footer'); -%>

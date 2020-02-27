@@ -4,6 +4,7 @@
   "description": "I am using a virtual envirement to run node js server and ubuntu as operating system.",
   "main": "app.js",
   "dependencies": {
+    "body-parse": "^0.1.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "sequelize": "^5.21.5",
