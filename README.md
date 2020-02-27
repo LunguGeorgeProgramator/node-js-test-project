@@ -20,9 +20,20 @@ I am using a virtual envirement to run node js server and ubuntu as operating sy
 
      node app.js
       
-6. To see result in browser just load link (NOTE: I am using local host port 6060 just because it was free on my machine, set any other port in app.js file)
+6. To see result in browser just load link:
 
-    http://0.0.0.0:6060/
+     http://0.0.0.0:6060/
+
+    (NOTE: I am using local host port 6060 just because it was free on my machine, set any other port in settings.js file)
+
+    https://github.com/LunguGeorgeProgramator/node-js-test-project/blob/master/settings.js
+    
+        server: {
+            hostname: '0.0.0.0',
+            port: 6060,
+        },
+    
+   
     
       
   
