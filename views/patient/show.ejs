@@ -1,0 +1,30 @@
+<%- include('../header'); -%>
+    <div class="row border-bottom border-light mb-4">
+        <div class="col">
+        <div class="h1 card-title">Pacient: <% if(patient) { %><%= patient.nume %><%  } %></div>
+        </div>
+        <div class="col text-right">
+        <a class="btn btn-secondary" href="/pacient/<% if(patient) { %><%= patient.id %><%  } %>/tratament">Adauga diagnoza</a>
+        <a class="btn btn-secondary" href="/pacient/<% if(patient) { %><%= patient.id %><%  } %>/editare">Editeaza</a>
+        <a class="btn btn-danger" href="/pacient/<% if(patient) { %><%= patient.id %><%  } %>/delete">Sterge</a>
+        </div>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Adresa: <% if(patient) { %><%= patient.adresa %><%  } %></li>
+        <li class="list-group-item">
+        <% if(patient.medic){ %>
+            <% patient.medic.forEach(function(medic) { %>
+            <div class="row">
+                <div class="col-sm border-bottom">Medic: <%= medic.nume %></div>
+                <div class="col-sm border-bottom">Sintome: <%= medic.MedicPatients.boala %></div>
+                <div class="col-sm border-bottom">Tratament: <%= medic.MedicPatients.tratament %></div>
+                <div class="col col-lg-2 border-bottom">
+                    <a class="btn btn-secondary" href="/pacient/<%= medic.MedicPatients.id %>/editeaza_tratament">edit</a>
+                    <a class="btn btn-danger" href="/pacient/<%= medic.MedicPatients.id %>/delete_tratament">del</a>
+                </div>
+            </div>
+            <% }); %>
+        <% } else { %> <p class="text-danger">Nu are medic!</p> <% } %>
+        </li>
+    </ul>
+<%- include('../footer'); -%> 

@@ -1,0 +1,16 @@
+<%- include('../header'); -%>                        
+<div class="h1 card-title border-bottom border-light pb-3">Pacient</div>
+<form class="p-4" action="/pacient/<% if(method && method =='create') { %>store<%  } else { %><% if(patient) { %><%= patient.id %><%  } %>/update<% } %>" method="post">
+    <div class="form-group">
+        <label for="nume">Nume</label>
+        <input type="text" name="nume" class="form-control" id="nume" value="<% if(patient) { %><%= patient.nume %><%  } %>">
+    </div>
+    <div class="form-group">
+        <label for="nume">Adresa</label>
+        <input type="text" name="adresa" class="form-control" id="adresa" value="<% if(patient) { %><%= patient.adresa %><%  } %>">
+    </div>
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary">Salveaza</button>
+    </div>
+</form>  
+<%- include('../footer'); -%>

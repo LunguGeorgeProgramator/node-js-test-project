@@ -1,5 +1,6 @@
 const ClinicController = require('./controller/ClinicController');
 const MedicController = require('./controller/MedicController');
+const PatientController = require('./controller/PatientController');
 module.exports = function(app) {
         /// clinic routes
         app.get('/', function (req, res) { 
@@ -58,5 +59,56 @@ module.exports = function(app) {
             return MedicController.delete(req, res);
         })
     
+        /// patient routes
+        app.get('/pacienti', function (req, res) { 
+            return PatientController.index(res);
+        });
+    
+        app.get('/pacient/creaza', function (req, res) { 
+            return PatientController.create(res);
+        })
+    
+        app.post('/pacient/store', function (req, res) { 
+            return PatientController.store(req, res);
+        })
+    
+        app.get('/pacient/:id/editare', function (req, res) { 
+            return PatientController.edit(req, res);
+        })
+    
+        app.post('/pacient/:id/update', function (req, res) { 
+            return PatientController.update(req, res);
+        })
+    
+        app.get('/pacient/:id/vizualizare', function (req, res) { 
+            return PatientController.show(req, res);
+        })
+    
+        app.get('/pacient/:id/delete', function (req, res) { 
+            return PatientController.delete(req, res);
+        })
+
+        /// treatment routes
+        app.get('/pacient/:id/tratament', function (req, res) { 
+            return PatientController.addTreatment(req, res);
+        })
+
+        app.post('/pacient/store_tratament', function (req, res) { 
+            return PatientController.storeTreatment(req, res);
+        })
+
+        app.get('/pacient/:id/editeaza_tratament', function (req, res) { 
+            return PatientController.editTreatment(req, res);
+        })
+
+        app.post('/pacient/update_tratament', function (req, res) { 
+            return PatientController.updateTreatment(req, res);
+        })
+
+        app.get('/pacient/:id/delete_tratament', function (req, res) { 
+            return PatientController.deleteTreatment(req, res);
+        })
+
+
         return app;
     };

@@ -1,0 +1,44 @@
+<%- include('../header'); -%>                        
+<div class="h1 card-title border-bottom border-light pb-3">Tratament pacient <%= patient.nume %></div>
+<form class="p-4" action="/pacient/<% if(method && method ==='create_tratament') { %>store_tratament<%  } else { %>update_tratament<% } %>" method="post">
+    <% if(typeof medics !== 'undefined' && medics.length !== 0) { %>
+    <input type="hidden" id="patientId" name="patientId" value="<%= patient.id %>">
+    <div class="form-group">
+        <label for="medicId">Medici disponibili</label>
+        <select class="form-control" id="medicId" name="medicId">
+        <% medics.forEach(function(medic) { %>
+            <option value="<%= medic.id %>"><%= medic.nume %></option>
+        <% }); %>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="boala">Boala</label>
+        <input type="text" name="boala" class="form-control" id="boala" value="">
+    </div>
+    <div class="form-group">
+        <label for="tratament">Tratament</label>
+        <input type="text" name="tratament" class="form-control" id="tratament" value="">
+    </div>
+    <% } else { %>
+        <% if(patient.medic){ %>
+            <% patient.medic.forEach(function(medic) { %>
+                <div class="form-group">
+                    <label for="boala">Medic: <%= medic.nume %></label>
+                    <input type="hidden" id="relationId" name="relationId" value="<%= medic.MedicPatients.id %>">
+                </div>
+                <div class="form-group">
+                    <label for="boala">Boala</label>
+                    <input type="text" name="boala" class="form-control" id="boala" value="<%= medic.MedicPatients.boala %>">
+                </div>
+                <div class="form-group">
+                    <label for="tratament">Tratament</label>
+                    <input type="text" name="tratament" class="form-control" id="tratament" value="<%= medic.MedicPatients.tratament %>">
+                </div>
+            <% }); %>
+        <% } else { %> <p class="text-danger">Nu are medic!</p> <% } %>
+    <% } %>
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary">Salveaza</button>
+    </div>
+</form>  
+<%- include('../footer'); -%>

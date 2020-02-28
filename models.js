@@ -42,6 +42,55 @@ const Medic = connectDb.define('medic', {
 	},
 });
 
+// difine patient model
+const Patient = connectDb.define('patient', {
+	id: {
+		allowNull: false,
+		autoIncrement: true,
+		primaryKey: true,
+		type: Sequelize.INTEGER
+	},
+	nume: {
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	adresa: {
+		type: Sequelize.STRING,
+		allowNull: true
+	}
+});
+
+const MedicPatient = connectDb.define('MedicPatients', {
+	id: {
+		allowNull: false,
+		autoIncrement: true,
+		primaryKey: true,
+		type: Sequelize.INTEGER
+	},
+	medicId: {
+		type: Sequelize.INTEGER,
+		references: {
+			model: Medic,
+			key: 'id'
+		}
+	},
+	patientId: {
+		type: Sequelize.INTEGER,
+		references: {
+			model: Patient,
+			key: 'id'
+		}
+	},
+	boala: {
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	tratament: {
+		type: Sequelize.STRING,
+		allowNull: false
+	}
+});
+
 // relation 1:N
 Clinic.hasMany(Medic, {
 	onDelete: 'SET NULL',
@@ -51,4 +100,18 @@ Medic.belongsTo(Clinic, {
 	foreignKey: 'clinicId'
 });
 
-module.exports = { Clinic, Medic };
+// relation N:N
+Medic.belongsToMany(Patient, { 
+	through: 'MedicPatients',
+	as: 'patient',
+	foreignKey: 'medicId',
+    otherKey: 'patientId'
+ });
+Patient.belongsToMany(Medic, { 
+	through: 'MedicPatients',
+	as: 'medic',
+    foreignKey: 'patientId',
+    otherKey: 'medicId'
+ });
+
+module.exports = { Clinic, Medic, Patient, MedicPatient };

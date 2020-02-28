@@ -1,0 +1,43 @@
+<%- include('../header'); -%>
+    <div class="row border-bottom border-light mb-4">
+        <div class="col">
+        <div class="h1 card-title">Pacienti</div>
+        </div>
+        <div class="col text-right">
+        <a class="btn btn-success" href="/pacient/creaza">Adauga pacient</a>
+        </div>
+    </div>
+    <div class="table-responsive-sm">
+        <table class="table table-bordered bg-light table-hover table-fixed">
+        <thead class="bg-secondary text-white">
+        <tr>
+            <th scope="col" class="text-center" >#</th>
+            <th scope="col" class="text-center" >Nume</th>
+            <th scope="col" class="text-center" >Adresa</th>
+            <th scope="col" class="text-center" >Medici</th>
+            <th scope="col" class="text-center" >Actiuni</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% patients.forEach(function(patient) { %>
+            <tr>
+            <td scope="row" width="5%" class="text-center"><%= patient.id %></td>
+            <td width="20%"> <%= patient.nume %> </td>
+            <td width="20%"> <%= patient.adresa %> </td>
+            <td width="15%"> 
+            <% if(patient.medic){ %>
+                <% patient.medic.forEach(function(medic) { %>
+                    <%= medic.nume %><br>
+                <% }); %>
+            <% } else { %> <p class="text-danger">Nu are medic!</p> <% } %></td>
+            <td width="20%" class="text-center">
+                <a class="btn btn-info" style="font-size: 10px;" data-toggle="tooltip" data-placement="top" title="view" href="/pacient/<%= patient.id %>/vizualizare"> view </a>
+                <a class="btn btn-secondary" style="font-size: 10px;" data-toggle="tooltip" data-placement="top" title="edit" href="/pacient/<%= patient.id %>/editare"> edit </a>
+                <a class="btn btn-danger" style="font-size: 10px;" data-toggle="tooltip" data-placement="top" title="delete" href="/pacient/<%= patient.id %>/delete"> del </a>
+            </td>
+            </tr>
+            <% }); %>
+        </tbody>
+        </table>
+    </div>
+<%- include('../footer'); -%>

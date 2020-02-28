@@ -2,7 +2,7 @@ const {Clinic} = require('../models');
 module.exports = {
     "index": function (res) {
         return Clinic.findAll({
-            order: [['id', 'DESC']]
+            order: [['id', 'ASC']]
         }).then(function (clinics) {
             return res.render('clinic/index', {
                 clinics: clinics

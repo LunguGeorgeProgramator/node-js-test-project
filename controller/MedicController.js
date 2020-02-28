@@ -3,7 +3,7 @@ module.exports = {
     "index": function (res) {
 
         return Medic.findAll({
-            order: [['id', 'DESC']],
+            order: [['id', 'ASC']],
             include: [{
                 model: Clinic,
                 as: 'clinic'
@@ -16,7 +16,7 @@ module.exports = {
     },
     "create": function (res) {
         Clinic.findAll({
-            order: [['id', 'DESC']]
+            order: [['id', 'ASC']]
         }).then(function (clinics) {
             return res.render('medic/form', {
                 medic: null,
@@ -38,7 +38,7 @@ module.exports = {
             where: { id: req.params.id }
         }).then(function (medic) {
             Clinic.findAll({
-                order: [['id', 'DESC']]
+                order: [['id', 'ASC']]
             }).then(function (clinics) {
                 return res.render('medic/form', {
                     medic: medic,
