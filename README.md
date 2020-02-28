@@ -38,7 +38,11 @@ I am using a virtual envirement to run node js server and ubuntu as operating sy
             port: 6060,
         },
     
-   
+  9. To run the tests, enter comand in terminal:
+
+         npm run test
+  
+  
     
       
   
