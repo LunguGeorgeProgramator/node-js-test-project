@@ -1,0 +1,40 @@
+<%- include('../header'); -%>
+
+    <div class="row border-bottom border-light mb-4">
+        <div class="col">
+        <div class="h1 card-title">Clinici</div>
+        </div>
+        <div class="col text-right">
+        <a class="btn btn-success" href="/medic/creaza">Adauga medic</a>
+        </div>
+    </div>
+    <div class="table-responsive-sm">
+        <table class="table table-bordered bg-light table-hover table-fixed">
+        <thead class="bg-secondary text-white">
+        <tr>
+            <th scope="col" class="text-center" >#</th>
+            <th scope="col" class="text-center" >Nume</th>
+            <th scope="col" class="text-center" >Specilizare</th>
+            <th scope="col" class="text-center" >Clinica</th>
+            <th scope="col" class="text-center" >Actiuni</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% medics.forEach(function(medic) { %>
+            <tr>
+            <td scope="row" width="5%" class="text-center"><%= medic.id %></td>
+            <td width="20%"> <%= medic.nume %> </td>
+            <td width="30%"> <%= medic.specializare %> </td>
+            <td width="20%"> <% if(medic.clinic){ %> <%= medic.clinic.nume %> <% } else { %> <p class="text-danger">Nu are clinica!</p> <% } %></td>
+            <td width="20%" class="text-center">
+                <a class="btn btn-info" style="font-size: 10px;" data-toggle="tooltip" data-placement="top" title="view" href="/medic/<%= medic.id %>/vizualizare"> view </a>
+                <a class="btn btn-secondary" style="font-size: 10px;" data-toggle="tooltip" data-placement="top" title="edit" href="/medic/<%= medic.id %>/editare"> edit </a>
+                <a class="btn btn-danger" style="font-size: 10px;" data-toggle="tooltip" data-placement="top" title="delete" href="/medic/<%= medic.id %>/delete"> del </a>
+            </td>
+            </tr>
+            <% }); %>
+        </tbody>
+        </table>
+    </div>
+
+<%- include('../footer'); -%>

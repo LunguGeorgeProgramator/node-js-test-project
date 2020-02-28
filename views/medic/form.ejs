@@ -3,15 +3,16 @@
 <div class="h1 card-title border-bottom border-light pb-3">Medic</div>
 
 <form class="p-4" action="/medic/<% if(method && method =='create') { %>store<%  } else { %><% if(medic) { %><%= medic.id %><%  } %>/update<% } %>" method="post">
-
+    <% if(typeof clinics !== 'undefined' && clinics.length !== 0) { %>
     <div class="form-group">
-        <label for="clinic_id">Example select</label>
-        <select class="form-control" id="clinic_id" name="clinic_id">
+        <label for="clinicId">Example select</label>
+        <select class="form-control" id="clinicId" name="clinicId">
         <% clinics.forEach(function(clinic) { %>
             <option value="<%= clinic.id %>"><%= clinic.nume %></option>
         <% }); %>
         </select>
     </div>
+    <% } %>
 
     <div class="form-group">
         <label for="nume">Nume</label>

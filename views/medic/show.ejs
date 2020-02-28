@@ -1,0 +1,20 @@
+<%- include('../header'); -%>
+
+    <div class="row border-bottom border-light mb-4">
+        <div class="col">
+        <div class="h1 card-title">Cabinet: <% if(medic) { %><%= medic.nume %><%  } %></div>
+        </div>
+        <div class="col text-right">
+        <a class="btn btn-secondary" href="/medic/<% if(medic) { %><%= medic.id %><%  } %>/editare">Editeaza</a>
+        <a class="btn btn-danger" href="/medic/<% if(medic) { %><%= medic.id %><%  } %>/delete">Sterge</a>
+        </div>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Specializare: <% if(medic) { %><%= medic.specializare %><%  } %></li>
+        <% if(medic.clinic){ %>
+            <li class="list-group-item">Clinica: <%= medic.clinic.nume %></li>
+            <li class="list-group-item">Localizata in: <%= medic.clinic.locatie %></li>
+        <% } %>
+    </ul>
+
+<%- include('../footer'); -%>
