@@ -1,4 +1,4 @@
-I am using a virtual envirement to run node js server and ubuntu as operating system, this application is a mini administration system for medics the tracs patients and treatments for them.
+I am using a virtual envirement to run node js server and ubuntu as operating system, this application is a mini administration system for medics the tracks patients and treatments for them.
 
 1. To set up one use this tutorial:
     
