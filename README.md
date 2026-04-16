@@ -19,7 +19,7 @@ I am using a virtual envirement to run node js server and ubuntu as operating sy
         npm install
 6. Run the migration file to create all the tables in data base:
 
-        npx ./migrations.js
+        node migrations.js
    
 7. Then start the server with comand:
 
